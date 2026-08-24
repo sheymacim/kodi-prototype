@@ -387,6 +387,295 @@ p {
   padding: 32px;
 }
 
+.support-view-toggle {
+  display: inline-flex;
+  width: fit-content;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.support-view-toggle button,
+.support-actions button,
+.amount-options button,
+.support-menu button {
+  border: 0;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.support-view-toggle button {
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.support-view-toggle button.is-active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.support-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.support-post-card,
+.support-info-card,
+.creator-support-panel {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.support-menu-wrap {
+  position: relative;
+}
+
+.support-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  z-index: 5;
+  display: grid;
+  width: 180px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.support-menu button {
+  min-height: 40px;
+  padding: 0 10px;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.support-menu button:hover {
+  background: var(--color-surface-muted);
+}
+
+.support-menu button:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-muted);
+  opacity: 0.55;
+}
+
+.support-media {
+  display: grid;
+  min-height: 260px;
+  place-items: end start;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface-muted);
+}
+
+.support-media div {
+  display: grid;
+  gap: 4px;
+  max-width: 360px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.support-media strong {
+  font-size: 1.2rem;
+}
+
+.support-media span {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.support-actions button {
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+}
+
+.support-actions button.is-active {
+  background: rgba(15, 139, 141, 0.1);
+  color: var(--color-primary-hover);
+}
+
+.support-info-card h2,
+.creator-support-panel h2 {
+  font-size: 1.15rem;
+}
+
+.support-rule-list {
+  display: grid;
+  gap: 8px;
+}
+
+.support-rule-list span {
+  min-height: 40px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-weight: 800;
+}
+
+.support-success,
+.support-error {
+  padding: 12px;
+  border-radius: var(--radius-control);
+  font-weight: 800;
+}
+
+.support-success {
+  border: 1px solid rgba(35, 131, 95, 0.24);
+  background: rgba(35, 131, 95, 0.1);
+  color: var(--color-success);
+}
+
+.support-error {
+  border: 1px solid rgba(194, 65, 61, 0.24);
+  background: rgba(194, 65, 61, 0.1);
+  color: var(--color-danger);
+}
+
+.creator-support-panel {
+  min-height: 220px;
+  align-content: start;
+}
+
+.creator-support-panel > div {
+  display: grid;
+  gap: 12px;
+}
+
+.support-switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.support-switch input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+}
+
+.support-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(23, 33, 36, 0.42);
+}
+
+.support-modal {
+  display: grid;
+  width: min(100%, 520px);
+  max-height: calc(100vh - 48px);
+  gap: 16px;
+  overflow: auto;
+  padding: 20px;
+}
+
+.support-modal-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.support-modal-header > div {
+  display: grid;
+  gap: 10px;
+}
+
+.support-balance {
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.amount-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.amount-options button {
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.amount-options button.is-active {
+  border-color: var(--color-primary);
+  background: rgba(15, 139, 141, 0.1);
+  color: var(--color-primary-hover);
+}
+
+.custom-amount-field {
+  display: grid;
+  gap: 8px;
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.custom-amount-field input {
+  min-height: 44px;
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.custom-amount-field input:focus {
+  border-color: var(--color-primary);
+  outline: 3px solid rgba(15, 139, 141, 0.14);
+}
+
+.support-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 12px;
+}
+
 @media (max-width: 920px) {
   .app-shell {
     display: block;
@@ -432,7 +721,8 @@ p {
   }
 
   .module-grid,
-  .creator-list {
+  .creator-list,
+  .support-layout {
     grid-template-columns: 1fr;
   }
 }
@@ -444,6 +734,21 @@ p {
 
   .intro-actions,
   .intro-actions .button {
+    width: 100%;
+  }
+
+  .support-view-toggle,
+  .support-view-toggle button,
+  .amount-options {
+    width: 100%;
+  }
+
+  .amount-options {
+    grid-template-columns: 1fr;
+  }
+
+  .support-modal-actions,
+  .support-modal-actions .button {
     width: 100%;
   }
 }
