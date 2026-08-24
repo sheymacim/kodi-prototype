@@ -387,6 +387,107 @@ p {
   padding: 32px;
 }
 
+.home-page {
+  display: grid;
+  gap: 24px;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+  gap: 24px;
+  align-items: center;
+}
+
+.home-copy {
+  display: grid;
+  gap: 12px;
+  max-width: 680px;
+}
+
+.home-copy h1 {
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  line-height: 1;
+}
+
+.home-copy .lead {
+  max-width: 620px;
+}
+
+.home-kicker {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.home-post-preview {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.home-post-preview p {
+  font-size: 0.96rem;
+}
+
+.home-post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.home-post-actions span {
+  min-height: 36px;
+  padding: 8px 10px;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.home-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-feature-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 18px;
+}
+
+.home-feature-card h2 {
+  font-size: 1.15rem;
+}
+
+.home-feature-card p {
+  min-height: 52px;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.home-feature-card .button {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.home-feature-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(15, 139, 141, 0.22);
+  border-radius: var(--radius-control);
+  background: rgba(15, 139, 141, 0.1);
+  color: var(--color-primary-hover);
+  font-weight: 900;
+}
+
 .support-view-toggle {
   display: inline-flex;
   width: fit-content;
@@ -802,13 +903,15 @@ p {
   }
 
   .intro-section,
-  .content-band {
+  .content-band,
+  .home-hero {
     grid-template-columns: 1fr;
   }
 
   .module-grid,
   .creator-list,
-  .support-layout {
+  .support-layout,
+  .home-feature-grid {
     grid-template-columns: 1fr;
   }
 }

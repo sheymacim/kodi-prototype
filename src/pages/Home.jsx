@@ -1,86 +1,84 @@
 import Badge from '../components/Badge.jsx';
 import Button from '../components/Button.jsx';
 import Card from '../components/Card.jsx';
-import CreatorCard from '../components/CreatorCard.jsx';
-import { featuredCreators, modules } from '../data/modules.js';
+
+const homeFeatures = [
+  {
+    icon: 'K',
+    title: 'Konu Sistemi',
+    route: '/creator',
+    description: 'Creator içeriklerini doğrulanmış konular altında keşfet.',
+  },
+  {
+    icon: '₺',
+    title: 'Mikro Destek',
+    route: '/support',
+    description: 'İçerik üreticilerine anonim ve gönüllü küçük katkılar gönder.',
+  },
+  {
+    icon: 'S',
+    title: 'Sponsor Keşfi',
+    route: '/sponsor',
+    description: "Creator'ları takipçi sayısı yerine konuya özgü performanslarıyla karşılaştır.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="page-stack">
-      <section className="intro-section">
-        <div className="intro-copy">
-          <Badge tone="primary">NSosyal İnovasyon Yarışması 2026</Badge>
+    <div className="home-page">
+      <section className="home-hero">
+        <div className="home-copy">
+          <span className="home-kicker">Sosyal medya içerik ekonomisi prototipi</span>
           <h1>KODİ</h1>
           <p className="subtitle">Konu Odaklı Destek ve İşbirliği</p>
           <p className="lead">
-            İçeriklerin konu bazında keşfedilmesini, içerik üreticilerinin anonim mikro destek
-            alabilmesini ve markaların konuya özgü performans üzerinden içerik üreticisi
-            keşfedebilmesini sağlayan sosyal medya içerik ekonomisi prototipi.
+            İçerikleri konu bazında keşfet, içerik üreticilerini anonim olarak destekle ve konuya
+            uygun creator'ları keşfet.
           </p>
-          <div className="intro-actions">
-            <Button to="/creator">Konu Sistemini İncele</Button>
-            <Button to="/sponsor" variant="secondary">
-              Sponsor Keşfine Git
-            </Button>
-          </div>
         </div>
 
-        <Card className="feed-preview" aria-label="KODI sosyal medya önizlemesi">
+        <Card className="home-post-preview" aria-label="KODI sosyal medya gönderi örneği">
           <div className="post-header">
             <div className="post-profile">
-              <div className="avatar avatar-md">DA</div>
+              <div className="avatar avatar-md">AD</div>
               <div>
-                <strong>Deniz Aral</strong>
-                <span>@denizaral · 12 dk</span>
+                <strong>Aylin Demir</strong>
+                <span>@aylindemir · 18 dk</span>
               </div>
             </div>
             <button className="icon-button" type="button" aria-label="Gönderi menüsü">
-              ...
+              •••
             </button>
           </div>
           <p>
-            Şehirde atıksız alışveriş rotalarını konu konu kaydediyorum. Bu hafta Kadıköy
-            çevresindeki üç yeni durağı ekledim.
+            Deprem çantası hazırlarken en sık unutulan küçük parçaları konu başlığı altında
+            topladım.
           </p>
           <div className="topic-row">
-            <Badge tone="primary">Sürdürülebilir yaşam</Badge>
-            <Badge>Yerel rehber</Badge>
+            <Badge tone="primary">Afet hazırlığı</Badge>
+            <Badge>Topluluk</Badge>
           </div>
-          <div className="post-stats">
-            <span>2,4 bin görüntülenme</span>
-            <span>184 kaydetme</span>
-            <span>%71 tamamlama</span>
+          <div className="home-post-actions">
+            <span>Beğen</span>
+            <span>Yorum</span>
+            <span>Paylaş</span>
           </div>
         </Card>
       </section>
 
-      <section className="module-grid" aria-label="KODI modülleri">
-        {modules.map((module) => (
-          <Card className="module-card" key={module.route}>
-            <Badge>{module.eyebrow}</Badge>
-            <h2>{module.title}</h2>
-            <p>{module.description}</p>
-            <Button to={module.route} variant="secondary">
-              Modüle Git
+      <section className="home-feature-grid" aria-label="KODI özellikleri">
+        {homeFeatures.map((feature) => (
+          <Card className="home-feature-card" key={feature.route}>
+            <span className="home-feature-icon" aria-hidden="true">
+              {feature.icon}
+            </span>
+            <h2>{feature.title}</h2>
+            <p>{feature.description}</p>
+            <Button to={feature.route} variant="secondary">
+              İncele
             </Button>
           </Card>
         ))}
-      </section>
-
-      <section className="content-band">
-        <div>
-          <h2>Konu bazlı performans, gerçek sosyal deneyimin içinde</h2>
-          <p>
-            KODİ, creator profili, gönderi kartları, konu etiketleri ve profesyonel araçları tek
-            bir ürün diliyle birleştirir. Ayrıntılı senaryolar ilerleyen geliştirme adımlarında bu
-            ortak zemin üzerinde genişletilecektir.
-          </p>
-        </div>
-        <div className="creator-list">
-          {featuredCreators.map((creator) => (
-            <CreatorCard creator={creator} key={creator.username} />
-          ))}
-        </div>
       </section>
     </div>
   );
