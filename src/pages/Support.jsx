@@ -15,6 +15,7 @@ export default function Support() {
   const [error, setError] = useState('');
   const [liked, setLiked] = useState(false);
   const [supportEnabled, setSupportEnabled] = useState(true);
+  const [hintVisible, setHintVisible] = useState(true);
 
   const amount = useMemo(() => {
     if (selectedAmount === 'custom') {
@@ -87,12 +88,38 @@ export default function Support() {
 
       {view === 'viewer' ? (
         <section className="support-layout">
-          <Card className="support-post-card">
+          <div className="support-feed-column">
+            {hintVisible ? (
+              <Card className="support-discovery-band">
+                <span className="support-info-icon" aria-hidden="true">
+                  i
+                </span>
+                <div>
+                  <h2>Destekle seçeneği ••• menüsünde</h2>
+                  <p>
+                    İçerik üreticisini desteklemek için gönderinin sağ üstündeki üç noktaya
+                    basabilirsin.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  aria-label="Bilgi bandını kapat"
+                  onClick={() => setHintVisible(false)}
+                >
+                  ×
+                </button>
+              </Card>
+            ) : null}
+
+            <Card className="support-post-card">
             <div className="post-header">
               <div className="post-profile">
                 <Avatar name="Aylin Demir" />
                 <div>
-                  <strong>Aylin Demir</strong>
+                  <div className="support-creator-line">
+                    <strong>Aylin Demir</strong>
+                    <span>Doğrulanmış</span>
+                  </div>
                   <span>@aylindemir · 18 dk</span>
                 </div>
               </div>
@@ -105,21 +132,27 @@ export default function Support() {
                   aria-expanded={menuOpen}
                   onClick={() => setMenuOpen((current) => !current)}
                 >
-                  ...
+                  •••
                 </button>
-                <p className="support-menu-hint">Destek seçeneği ••• menüsünde</p>
                 {menuOpen ? (
                   <div className="support-menu" role="menu">
+                    <button type="button" role="menuitem" onClick={() => setMenuOpen(false)}>
+                      Kaydet
+                    </button>
+                    <button type="button" role="menuitem" onClick={() => setMenuOpen(false)}>
+                      Bağlantıyı Kopyala
+                    </button>
+                    <button type="button" role="menuitem" onClick={() => setMenuOpen(false)}>
+                      Şikayet Et
+                    </button>
                     <button
+                      className="support-menu-primary"
                       type="button"
                       role="menuitem"
                       disabled={!supportEnabled}
                       onClick={openSupportPanel}
                     >
                       Destekle
-                    </button>
-                    <button type="button" role="menuitem" onClick={() => setMenuOpen(false)}>
-                      Gönderiyi kaydet
                     </button>
                   </div>
                 ) : null}
@@ -156,7 +189,8 @@ export default function Support() {
             </div>
 
             {message ? <p className="support-success">{message}</p> : null}
-          </Card>
+            </Card>
+          </div>
 
           <Card className="support-info-card">
             <h2>Destek Bakiyesi: {balance} TL</h2>

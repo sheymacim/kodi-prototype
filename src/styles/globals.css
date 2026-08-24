@@ -426,6 +426,12 @@ p {
   align-items: start;
 }
 
+.support-feed-column {
+  display: grid;
+  min-width: 0;
+  gap: 16px;
+}
+
 .support-post-card,
 .support-info-card,
 .creator-support-panel {
@@ -434,25 +440,80 @@ p {
   padding: 20px;
 }
 
+.support-discovery-band {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: start;
+  padding: 14px 16px;
+  border-color: rgba(15, 139, 141, 0.22);
+  background: rgba(15, 139, 141, 0.06);
+  box-shadow: none;
+}
+
+.support-discovery-band h2 {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.support-discovery-band p {
+  margin-top: 2px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.support-discovery-band button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(15, 139, 141, 0.18);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.support-info-icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 900;
+}
+
 .support-menu-wrap {
   position: relative;
-  display: grid;
-  justify-items: end;
-  gap: 6px;
 }
 
 .support-menu-trigger {
-  border-color: rgba(15, 139, 141, 0.28);
+  border-color: rgba(15, 139, 141, 0.34);
   color: var(--color-primary-hover);
+  letter-spacing: 0;
 }
 
-.support-menu-hint {
-  max-width: 180px;
-  color: var(--color-text-muted);
-  font-size: 0.82rem;
-  font-weight: 800;
-  line-height: 1.35;
-  text-align: right;
+.support-creator-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.support-creator-line span {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 0 8px;
+  border: 1px solid rgba(15, 139, 141, 0.22);
+  border-radius: 999px;
+  background: rgba(15, 139, 141, 0.08);
+  color: var(--color-primary-hover);
+  font-size: 0.76rem;
+  font-weight: 900;
 }
 
 .support-menu {
@@ -461,7 +522,7 @@ p {
   right: 0;
   z-index: 5;
   display: grid;
-  width: 180px;
+  width: 220px;
   padding: 8px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -480,6 +541,14 @@ p {
 
 .support-menu button:hover {
   background: var(--color-surface-muted);
+}
+
+.support-menu button.support-menu-primary {
+  color: var(--color-primary-hover);
+}
+
+.support-menu button.support-menu-primary:hover {
+  background: rgba(15, 139, 141, 0.1);
 }
 
 .support-menu button:disabled {
