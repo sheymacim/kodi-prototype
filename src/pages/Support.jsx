@@ -99,7 +99,7 @@ export default function Support() {
 
               <div className="support-menu-wrap">
                 <button
-                  className="icon-button"
+                  className="icon-button support-menu-trigger"
                   type="button"
                   aria-label="Gönderi menüsü"
                   aria-expanded={menuOpen}
@@ -107,6 +107,7 @@ export default function Support() {
                 >
                   ...
                 </button>
+                <p className="support-menu-hint">Destek seçeneği ••• menüsünde</p>
                 {menuOpen ? (
                   <div className="support-menu" role="menu">
                     <button
